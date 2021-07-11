@@ -1,17 +1,14 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const Button = ({ color, text }) => {
-	const [btnControl, setBtnControl] = useState(true)
-
-	const onChangeColor = () => {
-		setBtnControl(!btnControl)
-	}
+const Button = ({ color, text, onClick, btnControl }) => {
 
 	return (
-		<button onClick={onChangeColor} className='btn' style={{background:btnControl ? color : ''}}>{text}</button>
-	)
+		<button onClick={onClick} className='btn' style={{ background: btnControl ? color : '' }}>
+			{text}
+		</button>
+	);
 }
 
 Button.defaultProps = {
