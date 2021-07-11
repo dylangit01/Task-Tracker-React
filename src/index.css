@@ -12,7 +12,7 @@ body {
 
 .container {
   max-width: 500px;
-  margin: 30px, auto;
+  margin: 30px auto;
   overflow: auto;
   min-height: 300px;
   border: 1px solid steelblue;
@@ -29,7 +29,7 @@ body {
 
 .btn {
   display: inline-block;
-  background: #000;
+  background: rgb(64, 87, 216);
   color: #fff;
   border: none;
   padding: 10px 20px;
