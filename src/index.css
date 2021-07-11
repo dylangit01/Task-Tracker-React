@@ -54,11 +54,18 @@ body {
   width: 100%;
 }
 
-.tasks.reminder {
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.task.reminder {
   border-left: 5px solid green;
 }
 
-.tasks h3 {
+.task h3 {
   display: flex;
   justify-content: space-between;
   align-items: center
