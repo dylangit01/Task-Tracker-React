@@ -14,7 +14,7 @@ const Header = ({ title }) => {
 	return (
 		<header className='header'>
 			<h1>Task Tracker</h1>
-			<Button onClick={onChangeColor} btnControl={btnControl} color='green' text ='Hello'/>
+			<Button onClick={onChangeColor} btnControl={btnControl} color='green' text ='Add'/>
 			{/* <Button text ='Hello'/> */}
 			
 		</header>
