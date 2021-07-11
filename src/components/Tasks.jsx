@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 const Tasks = () => {
-	// const [tasks, setTasks] = useState([]);
-	const tasks = [
+	const [tasks, setTasks] = useState([
 		{
 			id: 1,
 			text: 'A',
@@ -21,12 +20,12 @@ const Tasks = () => {
 			day: 'C',
 			reminder: false,
 		},
-	];
+	]);
 
 	return (
 		<>
-			{tasks.map((task, idx) => (
-				<h3 key={idx}>{task.text}</h3>
+			{tasks.map((task) => (
+				<h3 key={task.id}>{task.text}</h3>
 			))}
 		</>
 	);
