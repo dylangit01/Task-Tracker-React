@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
 
+
 const Header = ({ title }) => {
 	const [btnControl, setBtnControl] = useState(true);
 	
@@ -15,6 +16,7 @@ const Header = ({ title }) => {
 			<h1>Task Tracker</h1>
 			<Button onClick={onChangeColor} btnControl={btnControl} color='green' text ='Hello'/>
 			{/* <Button text ='Hello'/> */}
+			
 		</header>
 	)
 }
