@@ -4,8 +4,9 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask'
 
 function App() {
+  const endpoint = 'http://localhost:5000/tasks';
   const [tasks, setTasks] = useState([]);
-  
+
   useEffect(() => {
     const getTasks = async () => {
       const tasks = await fetchTasks();
@@ -16,11 +17,10 @@ function App() {
 
   // Fetch tasks, below fun can be written in useEffect, however, in order to reuse it, so put it outside of useEffect(), and use getTasks to fetch and reuse it:
   const fetchTasks = async () => {
-		const endpoint = 'http://localhost:5000/tasks';
 		const res = await fetch(endpoint);
 		const data = await res.json();
 		return data;
-	};
+  };
   
   // Toggle <AddTask/>
   const [showAdd, setShowAdd] = useState(false)
@@ -34,9 +34,12 @@ function App() {
     console.log(newTask);
   }
   
-  // Delete task
-  const deleteTask = id => {
-    setTasks(tasks.filter(task=> task.id !== id))
+  // Delete task, here we only use fake json server to delete the data, so using fetch API to write the "delete" request, but for full stack, we can use Axios to make http request to delete the task from the server
+  const deleteTask = async(id) => {
+    await fetch(endpoint`/${id}`, {
+      method: 'DELETE'
+    })
+    setTasks(tasks.filter(task => task.id !== id))
   }
 
   // Toggle reminder
