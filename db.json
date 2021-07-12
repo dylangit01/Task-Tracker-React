@@ -23,6 +23,12 @@
       "day": "On Thursday",
       "reminder": true,
       "id": 4
+    },
+    {
+      "text": "super me",
+      "day": "Monday",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
