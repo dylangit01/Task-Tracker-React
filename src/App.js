@@ -90,10 +90,15 @@ function App() {
 	return (
 		<Router>
 			<div className='container'>
-				<Header onToggle={toggleShowAddTask} title='Tracking Tasks' />
-				{showAdd && <AddTask onAddTask={addTask} />}
-				{tasks.length > 0 ? <Tasks tasks={tasks} onToggle={toggleReminder} onDelete={deleteTask} /> : <h2>No Task</h2>}
-				<Switch>
+          <Route path='/' exact render={() => (
+            <>
+            <Header onToggle={toggleShowAddTask} title='Tracking Tasks' />
+				    {showAdd && <AddTask onAddTask={addTask} />}
+            {tasks.length > 0 ? <Tasks tasks={tasks} onToggle={toggleReminder} onDelete={deleteTask} /> : <h2>No Task</h2>}
+            </>
+          )} />
+
+          <Switch>
 					<Route path='/about' component={About} />
 					<Footer />
 				</Switch>
