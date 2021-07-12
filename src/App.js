@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask'
 
 function App() {
-	const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
+  
+  // Fetch Data:
+  useEffect(() => {
+    
+  }, [])
   
   // Toggle <AddTask/>
   const [showAdd, setShowAdd] = useState(false)
