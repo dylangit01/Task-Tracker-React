@@ -36,7 +36,22 @@ function App() {
 	};
 
 	// Toggle reminder
-	const toggleReminder = (id) => {
+  const toggleReminder = async (id) => {
+    // 1st: get the task that needs to be update for the reminder
+    const taskToToggle = await fetchSingleTask(id);
+    // 2nd: update this task:
+    const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
+    // 3rd: update server with this updated task:
+    const res = await fetch(`${endpoint}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type' : 'application/json'
+      },
+      body: JSON.stringify(updTask)
+    })
+    // 4th: get the updated task from server and update UI, don't forget the await from res.json()
+    const data = await res.json();
+
 		setTasks(tasks.map((task) => (task.id === id ? { ...task, reminder: !task.reminder } : task)));
 	};
 
