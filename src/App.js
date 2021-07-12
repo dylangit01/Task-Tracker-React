@@ -28,7 +28,7 @@ function App() {
     setShowAdd(!showAdd)
   }
   
-  // Add task, before using sever, we can just manually add this newTask to the state, however, when has server, we have to add the newTask to server, and fetch it from the server, not just directly fill the form and got it from the form, has to be save it into server and fetch it:
+  // Add task, before using sever, we can just manually add this newTask to the state, however, when connect to server, we have to add the newTask to server first (and remember to JSON.stringify), and fetch it from the server, not just directly fill the form and got it from the form, has to be save it into server and fetch it:
   const addTask = async (newTask) => {
     const res = await fetch(endpoint, {
       method: 'POST',
@@ -38,7 +38,7 @@ function App() {
       body: JSON.stringify(newTask)
     })
     const data = await res.json();
-    console.log(data);
+    setTasks([...tasks, data]);
 
   
     // setTasks([...tasks, newTask])
