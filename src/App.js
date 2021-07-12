@@ -4,26 +4,7 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask'
 
 function App() {
-	const [tasks, setTasks] = useState([
-		{
-			id: 1,
-			text: 'A',
-			day: 'A',
-			reminder: true,
-		},
-		{
-			id: 2,
-			text: 'B',
-			day: 'B',
-			reminder: true,
-		},
-		{
-			id: 3,
-			text: 'C',
-			day: 'C',
-			reminder: false,
-		},
-  ]);
+	const [tasks, setTasks] = useState([]);
   
   // Toggle <AddTask/>
   const [showAdd, setShowAdd] = useState(false)
