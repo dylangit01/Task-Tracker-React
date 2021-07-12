@@ -6,10 +6,21 @@ import AddTask from './components/AddTask'
 function App() {
   const [tasks, setTasks] = useState([]);
   
-  // Fetch Data:
   useEffect(() => {
-    
+    const getTasks = async () => {
+      const tasks = await fetchTasks();
+      setTasks(tasks)
+    }
+    getTasks();
   }, [])
+
+  // Fetch tasks, below fun can be written in useEffect, however, in order to reuse it, so put it outside of useEffect(), and use getTasks to fetch and reuse it:
+  const fetchTasks = async () => {
+		const endpoint = 'http://localhost:5000/tasks';
+		const res = await fetch(endpoint);
+		const data = await res.json();
+		return data;
+	};
   
   // Toggle <AddTask/>
   const [showAdd, setShowAdd] = useState(false)
