@@ -13,7 +13,8 @@ const AddTask = ({onAddTask}) => {
 			return;
 		}
 		const newTask = {
-			id: Math.floor((1 + Math.random()) * 10000),
+			// No need id as json-server will create it automatically
+			// id: Math.floor((1 + Math.random()) * 10000),
 			text,
 			day,
 			reminder

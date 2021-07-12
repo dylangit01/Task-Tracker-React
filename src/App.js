@@ -28,10 +28,20 @@ function App() {
     setShowAdd(!showAdd)
   }
   
-  // Add task:
-  const addTask = (newTask) => {
-    setTasks([...tasks, newTask])
-    console.log(newTask);
+  // Add task, before using sever, we can just manually add this newTask to the state, however, when has server, we have to add the newTask to server, and fetch it from the server, not just directly fill the form and got it from the form, has to be save it into server and fetch it:
+  const addTask = async (newTask) => {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-type' : 'application/json'
+      },
+      body: JSON.stringify(newTask)
+    })
+    const data = await res.json();
+    console.log(data);
+
+  
+    // setTasks([...tasks, newTask])
   }
   
   // Delete task, here we only use fake json server to delete the data, so using fetch API to write the "delete" request, it has the second parameter, add method: 'DELETE', but for full stack, we can use Axios to make http request to delete the task from the server;
