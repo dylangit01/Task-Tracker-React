@@ -51,8 +51,12 @@ function App() {
     })
     // 4th: get the updated task from server and update UI, don't forget the await from res.json()
     const data = await res.json();
+    // 5th: change task to updated task with correct reminder (but original way is correct, I think)
+    setTasks(tasks.map(task=> task.id === id ? {...task, reminder : data.reminder} : task))
 
-		setTasks(tasks.map((task) => (task.id === id ? { ...task, reminder: !task.reminder } : task)));
+
+    // Original version:
+		// setTasks(tasks.map((task) => (task.id === id ? { ...task, reminder: !task.reminder } : task)));
 	};
 
 	// Add task, before using sever, we can just manually add this newTask to the state, however, when connect to server, we have to add the newTask to server first (and remember to JSON.stringify), and fetch it from the server, not just directly fill the form and got it from the form, has to be save it into server and fetch it:

@@ -16,7 +16,7 @@
       "id": 3,
       "text": "Food shopping",
       "day": "Feb 6th at 3:30pm",
-      "reminder": false
+      "reminder": true
     }
   ]
 }
