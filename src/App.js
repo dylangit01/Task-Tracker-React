@@ -35,10 +35,10 @@ function App() {
   }
   
   // Delete task, here we only use fake json server to delete the data, so using fetch API to write the "delete" request, but for full stack, we can use Axios to make http request to delete the task from the server
-  const deleteTask = async(id) => {
-    await fetch(endpoint`/${id}`, {
-      method: 'DELETE'
-    })
+  const deleteTask = async (id) => {
+    await fetch(`${endpoint}/${id}`, {
+			method: 'DELETE',
+		});
     setTasks(tasks.filter(task => task.id !== id))
   }
 
