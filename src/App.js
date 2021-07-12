@@ -25,6 +25,12 @@ function App() {
 		},
   ]);
   
+  // Toggle <AddTask/>
+  const [showAdd, setShowAdd] = useState(false)
+  const toggleShowAddTask = () => {
+    setShowAdd(!showAdd)
+  }
+  
   // Add task:
   const addTask = (newTask) => {
     setTasks([...tasks, newTask])
@@ -43,11 +49,9 @@ function App() {
 
 	return (
 		<div className='container'>
-      <Header />
-      <AddTask onAddTask= {addTask} />
-      {
-        tasks.length >0 ? <Tasks tasks = {tasks} onToggle={toggleReminder} onDelete={deleteTask}/> : <h2>No Task</h2>
-      }
+			<Header onToggle={toggleShowAddTask} title='Tracking Tasks'/>
+			{showAdd && <AddTask onAddTask={addTask} />}
+			{tasks.length > 0 ? <Tasks tasks={tasks} onToggle={toggleReminder} onDelete={deleteTask} /> : <h2>No Task</h2>}
 		</div>
 	);
 }
